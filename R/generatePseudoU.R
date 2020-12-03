@@ -1,6 +1,6 @@
 #' A pulpDistr function
 #'
-#' pseudoObs() takes as input a matrix or dataframe of observations
+#' generatePseudoU() takes as input a matrix or dataframe of observations
 #' and returns a matrix of ranked pseudo-observations
 #'  where d is the number of columns in the input.
 #'
@@ -12,10 +12,10 @@
 #' @keywords
 #' @export
 #' @examples
-#' fitMarginFunction()
+#' generatePseudoU()
 #'
 
-pseudoObs <- function (observedSample){
+generatePseudoU <- function (observedSample){
   udata = matrix(0,dim(observedSample)[1],dim(observedSample)[2])
 
   n<-length(observedSample[,1])

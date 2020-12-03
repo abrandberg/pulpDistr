@@ -3,4 +3,4 @@
 export(characterizePulp)
 export(drawFromMargin)
 export(fitMarginFunction)
-export(pseudoObs)
+export(generatePseudoU)

@@ -33,7 +33,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   # Swap order to get conditioning variables at the end
 
 
-  udata = pseudoObs(pulp_raw)
+  udata = generatePseudoU(pulp_raw)
   # Generate pseudo-observations
 
 
