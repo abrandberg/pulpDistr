@@ -33,7 +33,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   # Swap order to get conditioning variables at the end
 
 
-  udata = pseudoObs(pulp_df)
+  udata = pseudoObs(pulp_raw)
   # Generate pseudo-observations
 
 
@@ -60,15 +60,15 @@ characterizePulp <- function(pulpPath,saveDirName){
 
   print("******************** Margin fits ********************")
   print("Margin fit: Lc")
-  fitLc      = fitMarginFunction(    pulp_df$Lc, listOfModels, Sim[,3])
+  fitLc      = fitMarginFunction(    pulp_raw$Lc, listOfModels, Sim[,3])
   print("Margin fit: Width")
-  fitWidth   = fitMarginFunction( pulp_df$Width, listOfModels, Sim[,4])
+  fitWidth   = fitMarginFunction( pulp_raw$Width, listOfModels, Sim[,4])
   print("Margin fit: Curl")
-  fitCurl    = fitMarginFunction(  pulp_df$Curl, listOfModels, Sim[,5])
+  fitCurl    = fitMarginFunction(  pulp_raw$Curl, listOfModels, Sim[,5])
   print("Margin fit: WallTkn")
-  fitWallTkn = fitMarginFunction(  pulp_df$Wall, listOfModels, Sim[,1])
+  fitWallTkn = fitMarginFunction(  pulp_raw$Wall, listOfModels, Sim[,1])
   print("Margin fit: Fibrillation")
-  fitFibril  = fitMarginFunction(pulp_df$Fibril, listOfModels, Sim[,2])
+  fitFibril  = fitMarginFunction(pulp_raw$Fibril, listOfModels, Sim[,2])
 
 
 
