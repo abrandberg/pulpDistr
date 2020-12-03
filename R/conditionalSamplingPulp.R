@@ -22,7 +22,7 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
 
   }
 
-
+  conditioningData = conditioningCombined
   #conditioningData = generatePseudoU(conditioningCombined)
 
   #conditioningData = conditioningData[1:idxToRetain,]
