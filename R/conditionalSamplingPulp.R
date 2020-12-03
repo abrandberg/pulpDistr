@@ -19,13 +19,13 @@ conditionalSamplingPulp <- function(saveDirName,conditioningData){
   condition = conditioningData[, cbind(RVM$Matrix[(d+1)-1,(d+1)-1] , RVM$Matrix[(d+1)-2,(d+1)-2] , RVM$Matrix[(d+1)-3,(d+1)-3])-2]
   Sim <- CDVineCondSim(RVM,condition)
 
-
+  listOfModels = c("weibull","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
-  fitLc      = fitMarginFunction(    pulp_df$Lc, listOfModels, Sim[,3])
+  fitLc      = fitMarginFunction(    conditioningData[,1], listOfModels, Sim[,3])
   print("Margin fit: Width")
-  fitWidth   = fitMarginFunction( pulp_df$Width, listOfModels, Sim[,4])
+  fitWidth   = fitMarginFunction( conditioningData[,2], listOfModels, Sim[,4])
   print("Margin fit: Curl")
-  fitCurl    = fitMarginFunction(  pulp_df$Curl, listOfModels, Sim[,5])
+  fitCurl    = fitMarginFunction(  conditioningData[,3], listOfModels, Sim[,5])
 
   print("Conditional margin draw: WallTkn")
   fitWallTkn$marginDraw = drawFromMargin(fitWallTkn$marginGenerator,Sim[,1])
