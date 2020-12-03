@@ -59,6 +59,7 @@ characterizePulp <- function(pulpPath,saveDirName){
 
 
   print("******************** Margin fits ********************")
+  listOfModels = c("weibull","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
   fitLc      = fitMarginFunction(    pulp_raw$Lc, listOfModels, Sim[,3])
   print("Margin fit: Width")
