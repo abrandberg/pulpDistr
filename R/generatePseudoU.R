@@ -22,5 +22,5 @@ pseudoObs <- function (observedSample){
   for(i in 1:dim(observedSample)[2] ){
     udata[,i]<-rank(observedSample[,i])/(n+1)
   }
-  return(pseudoObs)
+  return(udata)
 }
