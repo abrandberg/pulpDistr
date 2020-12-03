@@ -49,7 +49,7 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
   pulp_fit[,1] = fitWallTkn$marginDraw
   pulp_fit[,2] = fitFibril$marginDraw
   pulp_fit = as.data.frame(pulp_fit)
-  names(pulp_fit)<- c("Lc","Curl","Fibril","Width","Wall")
+  names(pulp_fit)<- c("Wall","Fibril","Lc","Width","Curl")
 
   characterizedPulp = list()
   characterizedPulp$fitData = pulp_fit
