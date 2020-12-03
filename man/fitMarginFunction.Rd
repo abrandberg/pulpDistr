@@ -2,7 +2,7 @@
 % Please edit documentation in R/fitMarginFunction.R
 \name{fitMarginFunction}
 \alias{fitMarginFunction}
-\title{A pulpDistr function}
+\title{Univaraite margin fitting}
 \usage{
 fitMarginFunction(observedMargin, listOfModels, quantilesToEval)
 }
@@ -14,7 +14,7 @@ fitMarginFunction(observedMargin, listOfModels, quantilesToEval)
 \item{quantilesToEval}{Quantiles to calculate values for}
 }
 \description{
-A pulpDistr function
+Univaraite margin fitting
 }
 \examples{
 fitMarginFunction()

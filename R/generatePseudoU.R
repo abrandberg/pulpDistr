@@ -1,4 +1,4 @@
-#' A pulpDistr function
+#' Pseudo-observation generator
 #'
 #' generatePseudoU() takes as input a matrix or dataframe of observations
 #' and returns a matrix of ranked pseudo-observations

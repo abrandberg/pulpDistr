@@ -2,7 +2,7 @@
 % Please edit documentation in R/generatePseudoU.R
 \name{generatePseudoU}
 \alias{generatePseudoU}
-\title{A pulpDistr function}
+\title{Pseudo-observation generator}
 \usage{
 generatePseudoU(observedSample)
 }

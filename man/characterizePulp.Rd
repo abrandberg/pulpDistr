@@ -2,7 +2,7 @@
 % Please edit documentation in R/characterizePulp.R
 \name{characterizePulp}
 \alias{characterizePulp}
-\title{A pulpDistr function}
+\title{Model selection for pulp characterization using C-Vine copulas}
 \usage{
 characterizePulp(pulpPath, saveDirName)
 }

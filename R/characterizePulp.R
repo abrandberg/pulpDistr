@@ -1,4 +1,4 @@
-#' A pulpDistr function
+#' Model selection for pulp characterization using C-Vine copulas
 #'
 #' characterizePulp() takes as input a dataframe
 #'
@@ -10,28 +10,10 @@
 #' characterizePulp()
 #'
 characterizePulp <- function(pulpPath,saveDirName){
-  ##########################################################################################
-  # Data import and file restructuring
-  #
+  pulpPath = gsub("[\\]","/",pulpPath)
   saveDirName = gsub("[\\]","/",saveDirName)
 
-  pulp_raw <- read.csv(pulpPath, header = FALSE, sep = '\t', dec = '.')
-  # Load and preprocess the pulp data
-
-  pulp_raw <- pulp_raw[ c(3 ,4, 5, 6, 16)]
-  pulp_raw <- pulp_raw[ c(1, 4, 5, 2, 3) ]
-  # Remove columns that are not of interest. Retain length Lc, Width, WallTkn and Curl
-
-  names(pulp_raw) <- c("Lc","Curl","Fibril","Width","Wall")
-  # Assign names to the data frame
-
-  pulp_raw$Curl <- pulp_raw$Curl/100
-  # Standard format of Curl
-
-  pulp_raw = pulp_raw[c(5,3,1,4,2)]
-  # Wall Fibril Lc Width Curl
-  # Swap order to get conditioning variables at the end
-
+  pulp_raw = readAndFormatPulpFile(pulpPath)
 
   udata = generatePseudoU(pulp_raw)
   # Generate pseudo-observations
@@ -74,10 +56,10 @@ characterizePulp <- function(pulpPath,saveDirName){
 
 
 
-  save(list = "RVM",file = paste(saveDirName,".Rdata",sep = ""))
+  #save(list = "RVM",file = paste(saveDirName,".Rdata",sep = ""))
   # Save the RVM for future use.
 
-  save(RVM,fitLc,fitWidth,fitCurl,fitWallTkn,fitFibril,file = paste(saveDirName,".Rdata",sep = ""))
+  save(RVM,fitLc,fitWidth,fitCurl,fitWallTkn,fitFibril, file = paste(saveDirName,".Rdata",sep = ""))
   # Here we should allow for the files to be saved as well.
 
   characterizedPulp = list()

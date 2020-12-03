@@ -1,4 +1,4 @@
-#' A pulpDistr function
+#' Margin sampler
 #'
 #' This function allows you to express your love of cats.
 #' @param marginGenerator Contains fitted univariate margin parameters

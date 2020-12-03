@@ -2,7 +2,7 @@
 % Please edit documentation in R/drawFromMargin.R
 \name{drawFromMargin}
 \alias{drawFromMargin}
-\title{A pulpDistr function}
+\title{Margin sampler}
 \usage{
 drawFromMargin(marginGenerator, quantilesToEval)
 }

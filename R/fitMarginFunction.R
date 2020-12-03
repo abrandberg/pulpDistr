@@ -1,4 +1,4 @@
-#' A pulpDistr function
+#' Univaraite margin fitting
 #'
 #'
 #' @param observedMargin ECDF values
