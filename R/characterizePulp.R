@@ -80,6 +80,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   save(RVM,fitLc,fitWidth,fitCurl,fitWallTkn,fitFibril,file = paste(saveDirName,".Rdata",sep = ""))
   # Here we should allow for the files to be saved as well.
 
+  characterizedPulp = list
   characterizedPulp$rawData = pulp_raw
   return(characterizedPulp)
 }
