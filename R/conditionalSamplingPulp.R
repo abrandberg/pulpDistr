@@ -9,12 +9,14 @@
 #' @examples
 #' conditionalSamplingPulp()
 #'
-conditionalSamplingPulp <- function(saveDirName,pulp_cond){
+conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
 
+  idxToRetain = length(pulp_cond[,1])
+  conditioningCombined = do.call(cbind, list(pulp_cond, pulp_raw))
 
-conditioningData = generatePseudoU(pulp_cond)
+  conditioningData = generatePseudoU(pulp_cond)
 
-
+  conditioningData = conditioningData[1:idxToRetain,]
 
 
 
