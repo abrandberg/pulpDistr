@@ -9,7 +9,14 @@
 #' @examples
 #' conditionalSamplingPulp()
 #'
-conditionalSamplingPulp <- function(saveDirName,conditioningData){
+conditionalSamplingPulp <- function(saveDirName,pulp_cond){
+
+
+conditioningData = generatePseudoU(pulp_cond)
+
+
+
+
 
   load( file = paste(saveDirName,".Rdata",sep = ""))
   # Load previously determined data
@@ -21,11 +28,11 @@ conditionalSamplingPulp <- function(saveDirName,conditioningData){
 
   listOfModels = c("weibull","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
-  fitLc      = fitMarginFunction(    conditioningData[,1], listOfModels, Sim[,3])
+  fitLc      = fitMarginFunction(    pulp_cond$Lc, listOfModels, Sim[,3])
   print("Margin fit: Width")
-  fitWidth   = fitMarginFunction( conditioningData[,2], listOfModels, Sim[,4])
+  fitWidth   = fitMarginFunction( pulp_cond$Width, listOfModels, Sim[,4])
   print("Margin fit: Curl")
-  fitCurl    = fitMarginFunction(  conditioningData[,3], listOfModels, Sim[,5])
+  fitCurl    = fitMarginFunction(  pulp_cond$Curl, listOfModels, Sim[,5])
 
   print("Conditional margin draw: WallTkn")
   fitWallTkn$marginDraw = drawFromMargin(fitWallTkn$marginGenerator,Sim[,1])
