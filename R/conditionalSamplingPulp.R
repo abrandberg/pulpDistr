@@ -12,7 +12,7 @@
 conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
 
   idxToRetain = length(pulp_cond[,1])
-  conditioningCombined = do.call(cbind, list(pulp_cond, pulp_raw))
+  conditioningCombined = do.call(rbind, list(pulp_cond, pulp_raw))
 
   conditioningData = generatePseudoU(pulp_cond)
 
