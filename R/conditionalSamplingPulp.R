@@ -33,7 +33,7 @@ conditionalSamplingPulp <- function(saveDirName,conditioningData){
   fitFibril$marginDraw  = drawFromMargin(fitFibril$marginGenerator,Sim[,2])
 
 
-  pulp_fit = matrix(nrow=dim(conditioningData[1]),ncol=5)
+  pulp_fit = matrix(nrow=length(conditioningData[,1]),ncol=5)
   pulp_fit[,1] = fitLc$marginDraw
   pulp_fit[,2] = fitWidth$marginDraw
   pulp_fit[,3] = fitCurl$marginDraw
