@@ -10,7 +10,14 @@ pseudoObs(observedSample)
 \item{observedSample}{Matrix or dataframe of observations}
 }
 \description{
-A pulpDistr function
+pseudoObs() takes as input a matrix or dataframe of observations
+and returns a matrix of ranked pseudo-observations
+[0, 1)^d where d is the number of columns in the input.
+}
+\details{
+The observations are normalized such that the value 1 is never
+returned, as this could generate some numerical difficulties
+later on.
 }
 \examples{
 fitMarginFunction()
