@@ -57,6 +57,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   # Fit Copula
 
 
+  Sim <- RVineSim(1*dim(pulp_raw)[1],RVM)
 
   print("******************** Margin fits ********************")
   listOfModels = c("weibull","gamma","lnorm","norm","exp")
