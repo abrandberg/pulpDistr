@@ -42,12 +42,13 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
   fitFibril$marginDraw  = drawFromMargin(fitFibril$marginGenerator,Sim[,2])
 
 
-  pulp_fit = as.data.frame(nrow=length(conditioningData[,1]),ncol=5)
+  pulp_fit = as.matrx(nrow=length(conditioningData[,1]),ncol=5)
   pulp_fit[,3] = fitLc$marginDraw
   pulp_fit[,4] = fitWidth$marginDraw
   pulp_fit[,5] = fitCurl$marginDraw
   pulp_fit[,1] = fitWallTkn$marginDraw
   pulp_fit[,2] = fitFibril$marginDraw
+  pulp_fit = as.data.frame(pulp_fit)
   names(pulp_fit)<- c("Lc","Curl","Fibril","Width","Wall")
 
   characterizedPulp = list()
