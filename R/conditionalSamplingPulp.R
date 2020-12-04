@@ -27,8 +27,8 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
 
   #conditioningData = conditioningData[1:idxToRetain,]
 
-
-
+  print("Resume file:")
+  print(saveDirName)
   load( file = paste(saveDirName,".Rdata",sep = ""))
   # Load previously determined data
 
