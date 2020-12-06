@@ -4,7 +4,7 @@
 \alias{generatePulpSample}
 \title{Generate a new sample given a complete data set}
 \usage{
-generatePulpSample(pulpPath, saveDirName, outputName)
+generatePulpSample(pulpPath, saveDirName, outputName, numSamples)
 }
 \arguments{
 \item{pulpPath}{Path to the fiber characterization file}
@@ -12,6 +12,8 @@ generatePulpSample(pulpPath, saveDirName, outputName)
 \item{saveDirName}{Path to the place where the pre-computed copula is stored}
 
 \item{outputName}{The name of the place where file is to be saved}
+
+\item{numSamples}{The number of samples to generate}
 }
 \description{
 generatePulpSample() takes as input a dataframe

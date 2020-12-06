@@ -5,17 +5,18 @@
 #' @param pulpPath Path to the fiber characterization file
 #' @param saveDirName Path to the place where the pre-computed copula is stored
 #' @param outputName The name of the place where file is to be saved
+#' @param numSamples The number of samples to generate
 #' @keywords
 #' @export
 #' @examples
 #' generatePulpSample()
 #'
-generatePulpSample <- function(pulpPath,saveDirName,outputName){
+generatePulpSample <- function(pulpPath,saveDirName,outputName,numSamples){
 
   load(file = paste(saveDirName,".Rdata",sep = ""))
 
 
-  Sim <- CDVineCondSim(RVM,condition)
+  Sim <- RVineSim(numSamples,RVM)
 
   listOfModels = c("weibull","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
