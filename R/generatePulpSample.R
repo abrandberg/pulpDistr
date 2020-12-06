@@ -18,13 +18,12 @@ generatePulpSample <- function(pulpPath,saveDirName,outputName,numSamples){
 
   Sim <- RVineSim(numSamples,RVM)
 
-  listOfModels = c("weibull","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
-  fitLc      = fitMarginFunction(    pulp_cond$Lc, listOfModels, Sim[,3])
+  fitLc$marginDraw = drawFromMargin(fitLc$marginGenerator,Sim[,3])
   print("Margin fit: Width")
-  fitWidth   = fitMarginFunction( pulp_cond$Width, listOfModels, Sim[,4])
-  print("Margin fit: Curl")
-  fitCurl    = fitMarginFunction(  pulp_cond$Curl, listOfModels, Sim[,5])
+  fitWidth$marginDraw = drawFromMargin(fitWidth$marginGenerator,Sim[,4])
+  print("Margin draw: Curl")
+  fitCurl$marginDraw = drawFromMargin(fitCurl$marginGenerator,Sim[,5])
 
   print("Conditional margin draw: WallTkn")
   fitWallTkn$marginDraw = drawFromMargin(fitWallTkn$marginGenerator,Sim[,1])
@@ -32,7 +31,7 @@ generatePulpSample <- function(pulpPath,saveDirName,outputName,numSamples){
   fitFibril$marginDraw  = drawFromMargin(fitFibril$marginGenerator,Sim[,2])
 
 
-  pulp_fit = matrix(nrow=length(conditioningData[,1]),ncol=5)
+  pulp_fit = matrix(nrow=numSamples,ncol=5)
   pulp_fit[,3] = fitLc$marginDraw
   pulp_fit[,4] = fitWidth$marginDraw
   pulp_fit[,5] = fitCurl$marginDraw
