@@ -49,7 +49,7 @@ generatePulpSample <- function(pulpPath,saveDirName,outputName,numSamples){
   outputNetwork[,6] = pulp_fit[,5]
   outputNetwork[,c(7,8,9,10,11,12,13,14,15)] = 0
   outputNetwork[,16] = pulp_fit[,2]
-  write.table(outputNetwork,file=outputName,quote = FALSE, sep = "\t",eol = "\n",row.names = FALSE,col.names = FALSE)
+  write.table(format(outputNetwork, digits=3),file=outputName,quote = FALSE, sep = "\t",eol = "\n",row.names = FALSE,col.names = FALSE)
 
 
 }
