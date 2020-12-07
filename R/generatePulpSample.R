@@ -42,11 +42,11 @@ generatePulpSample <- function(pulpPath,saveDirName,outputName,numSamples){
   # Generate appropriate shape
   outputNetwork = matrix(nrow=numSamples,ncol=16)
   outputNetwork[,1] = 0
-  outputNetwork[,2] = pulp_fit[,3]/(1+pulp_fit[,5]/100)
+  outputNetwork[,2] = pulp_fit[,3]/(1+pulp_fit[,5])
   outputNetwork[,3] = pulp_fit[,3]
   outputNetwork[,4] = pulp_fit[,4]
   outputNetwork[,5] = pulp_fit[,1]
-  outputNetwork[,6] = pulp_fit[,5]
+  outputNetwork[,6] = pulp_fit[,5]*100
   outputNetwork[,c(7,8,9,10,11,12,13,14,15)] = 0
   outputNetwork[,16] = pulp_fit[,2]
   write.table(format(outputNetwork, digits=3),file=outputName,quote = FALSE, sep = "\t",eol = "\n",row.names = FALSE,col.names = FALSE)
