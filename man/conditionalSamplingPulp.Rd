@@ -4,7 +4,7 @@
 \alias{conditionalSamplingPulp}
 \title{Conditional sampling}
 \usage{
-conditionalSamplingPulp(saveDirName, pulp_cond, pulp_raw)
+conditionalSamplingPulp(saveDirName, pulp_cond, pulp_raw, outputName)
 }
 \arguments{
 \item{saveDirName}{Path to the place where previous characterization was saved}

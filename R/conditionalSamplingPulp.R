@@ -9,7 +9,7 @@
 #' @examples
 #' conditionalSamplingPulp()
 #'
-conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
+conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw,outputName){
 
   idxToRetain = length(pulp_cond[,1])
   #conditioningCombined = do.call(rbind, list(pulp_cond, pulp_raw))
@@ -57,8 +57,36 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw){
   pulp_fit[,5] = fitCurl$marginDraw
   pulp_fit[,1] = fitWallTkn$marginDraw
   pulp_fit[,2] = fitFibril$marginDraw
+
+
+  outputNetwork = matrix(nrow = length(pulp_cond[,1]), ncol = 16)
+  outputNetwork[, 1] = 0
+  outputNetwork[, 2] = pulp_fit[, 3]/(1 + pulp_fit[, 5])
+  outputNetwork[, 3] = pulp_fit[, 3]
+  outputNetwork[, 4] = pulp_fit[, 4]
+  outputNetwork[, 5] = pulp_fit[, 1]
+  outputNetwork[, 6] = pulp_fit[, 5] * 100
+  outputNetwork[, c(7, 8, 9, 10, 11, 12, 13, 14, 15)] = 0
+  outputNetwork[, 16] = pulp_fit[, 2]
+
+  write.table(format(outputNetwork, digits = 3), file = outputName,
+              quote = FALSE, sep = "\t", eol = "\n", row.names = FALSE,
+              col.names = FALSE)
+
+
+
+
+
+
   pulp_fit = as.data.frame(pulp_fit)
   names(pulp_fit)<- c("Wall","Fibril","Lc","Width","Curl")
+
+
+
+
+
+
+
 
   characterizedPulp = list()
   characterizedPulp$fitData = pulp_fit
