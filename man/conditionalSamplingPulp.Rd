@@ -9,7 +9,11 @@ conditionalSamplingPulp(saveDirName, pulp_cond, pulp_raw, outputName)
 \arguments{
 \item{saveDirName}{Path to the place where previous characterization was saved}
 
-\item{conditioningData}{New data which does not contain the wall thickness or external fibrillation}
+\item{pulp_cond}{New data which does not contain the wall thickness or external fibrillation}
+
+\item{pulp_raw}{Data used as reference}
+
+\item{outputName}{Where to write the results}
 }
 \description{
 conditionalSamplingPulp() takes as input a dataframe

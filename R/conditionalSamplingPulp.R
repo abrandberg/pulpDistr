@@ -3,7 +3,9 @@
 #' conditionalSamplingPulp() takes as input a dataframe
 #'
 #' @param saveDirName Path to the place where previous characterization was saved
-#' @param conditioningData New data which does not contain the wall thickness or external fibrillation
+#' @param pulp_cond New data which does not contain the wall thickness or external fibrillation
+#' @param pulp_raw Data used as reference
+#' @param outputName Where to write the results
 #' @keywords
 #' @export
 #' @examples
