@@ -41,11 +41,11 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw,outputName){
 
   listOfModels = c("weibull","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
-  fitLc      = fitMarginFunction(    pulp_cond$Lc, listOfModels, Sim[,3])
+  fitLc      = fitMarginFunction(    pulp_cond$Lc, listOfModels, Sim[,(d+1)-1])
   print("Margin fit: Width")
-  fitWidth   = fitMarginFunction( pulp_cond$Width, listOfModels, Sim[,4])
+  fitWidth   = fitMarginFunction( pulp_cond$Width, listOfModels, Sim[,(d+1)-2])
   print("Margin fit: Curl")
-  fitCurl    = fitMarginFunction(  pulp_cond$Curl, listOfModels, Sim[,5])
+  fitCurl    = fitMarginFunction(  pulp_cond$Curl, listOfModels, Sim[,(d+1)-3])
 
   print("Conditional margin draw: WallTkn")
   fitWallTkn$marginDraw = drawFromMargin(fitWallTkn$marginGenerator,Sim[,1])
