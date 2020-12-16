@@ -23,7 +23,7 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw,outputName){
     conditioningCombined[i,3] = xTemp[3]
   }
 
-  xTemp = generatePseudoU(pulp_raw)
+  xTemp = generatePseudoU(pulp_cond)
 
 
   conditioningData = conditioningCombined
