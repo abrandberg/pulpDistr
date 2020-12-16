@@ -17,9 +17,16 @@ conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw,outputName){
   #conditioningCombined = do.call(rbind, list(pulp_cond, pulp_raw))
   conditioningCombined = matrix(nrow = idxToRetain,ncol = 3)
   for(i in 1:idxToRetain ){
+
+    for (j in 1:dim(pulp_cond)[2]){
+     conditioningCombined[i,j] = rank(rbind(as.matrix(pulp_cond[i,j]), as.matrix(pulp_raw[,j])))[1]/(length(pulp_raw[,1])+1+1)
+
+      #  rbind(pulp_cond[i,j], pulp_raw[,j])
+
+    }
     #xTemp = rbind(generatePseudoU(do.call(rbind, list(pulp_cond[i,], pulp_raw)))[1,])
 
-    conditioningCombined[i,]<-rank(do.call(rbind, list(pulp_cond[i,], pulp_raw)))[1,]/(length(pulp_cond[,1])+1+1)
+    #conditioningCombined[i, ]<-rank(do.call(rbind, list(pulp_cond[i,j], pulp_raw[,j])))[1]/(length(pulp_raw[,1])+1+1)
 
     #conditioningCombined[i,1] = xTemp[1]
     #conditioningCombined[i,2] = xTemp[2]
