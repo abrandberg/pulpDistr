@@ -16,5 +16,5 @@ characterizePulp() takes as input a dataframe
 }
 \examples{
 characterizePulp()
-
+characterizePulp
 }

@@ -8,7 +8,7 @@
 #' @export
 #' @examples
 #' characterizePulp()
-#'
+#'characterizePulp
 characterizePulp <- function(pulpPath,saveDirName){
   pulpPath = gsub("[\\]","/",pulpPath)
   saveDirName = gsub("[\\]","/",saveDirName)
@@ -25,7 +25,8 @@ characterizePulp <- function(pulpPath,saveDirName){
   copType = "CVine"
   selMethod = "AIC"
   checkIndep = TRUE
-  fitSet = c(0,1)#NA
+  #fitSet = c(0,1)#NA
+  fitSet = c(0,1,3,4,5)#NA
 
   print("CDVineCondFit input options:")
   print(paste("Nx =",condVars))
@@ -35,7 +36,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   print(paste("familyset =",fitSet))
 
   RVM <- CDVineCondFit(udata,Nx=condVars, type=copType, selectioncrit=selMethod,
-                       indeptest=checkIndep, level=0.05, familyset = fitSet)
+                       indeptest=checkIndep, level=0.05, familyset = fitSet, rotations = TRUE)
   # Fit Copula
 
 
