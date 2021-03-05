@@ -26,7 +26,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   selMethod = "AIC"
   checkIndep = TRUE
   #fitSet = c(0,1)#NA
-  fitSet = c(0,1,3,4,5)#NA
+  fitSet = c(0,1,3,4,5,104,204)#NA
 
   print("CDVineCondFit input options:")
   print(paste("Nx =",condVars))
