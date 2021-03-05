@@ -36,7 +36,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   print(paste("familyset =",fitSet))
 
   RVM <- CDVineCondFit(udata,Nx=condVars, type=copType, selectioncrit=selMethod,
-                       indeptest=checkIndep, level=0.05, familyset = fitSet, rotations = TRUE)
+                       indeptest=checkIndep, level=0.05)#, familyset = fitSet, rotations = TRUE)
   # Fit Copula
 
 
