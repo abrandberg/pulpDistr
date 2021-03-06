@@ -38,7 +38,7 @@ characterizePulp <- function(pulpPath,saveDirName){
   #RVM <- CDVineCondFit(udata,Nx=condVars, type=copType, selectioncrit=selMethod,
   #                     indeptest=checkIndep, level=0.05)#, familyset = fitSet, rotations = TRUE)
   # Fit Copula
-  RVM <- CDVineCondFit(udata, type=copType, selectioncrit=selMethod,
+  RVM <- RVineStructureSelect(udata, type=copType, selectioncrit=selMethod,
                        indeptest=checkIndep, level=0.05)
 
   Sim <- RVineSim(1*dim(pulp_raw)[1],RVM)
