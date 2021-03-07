@@ -10,7 +10,7 @@
 #'
 drawFromMargin <- function(marginGenerator,quantilesToEval){
   if (marginGenerator$distname == "weibull"){
-    marginDraw = qweibull(quantilesToEval,marginGenerator$estimate[2],marginGenerator$estimate[1])
+    marginDraw = qweibull(quantilesToEval,shape = marginGenerator$estimate[1], scale = marginGenerator$estimate[2])
   } else if (marginGenerator$distname == "gamma"){
     marginDraw = qgamma(quantilesToEval, shape = marginGenerator$estimate[1], rate = marginGenerator$estimate[2])
   } else if (marginGenerator$distname == "lnorm"){
