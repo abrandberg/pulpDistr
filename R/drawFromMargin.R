@@ -19,6 +19,8 @@ drawFromMargin <- function(marginGenerator,quantilesToEval){
     marginDraw = qnorm(quantilesToEval, mean = marginGenerator$estimate[1], sd = marginGenerator$estimate[2])
   } else if (marginGenerator$distname == "exp"){
     marginDraw = qexp(quantilesToEval, rate = marginGenerator$estimate[1])
+  } else if (marginGenerator$distname == "weibull3"){
+    marginDraw = qweibull3(quantilesToEval,marginGenerator$estimate[1],marginGenerator$estimate[2],thres=marginGenerator$estimate[3])
   }
   return(marginDraw)
 }
