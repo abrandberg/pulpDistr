@@ -13,7 +13,18 @@ fitMarginFunction <- function (observedMargin,listOfModels,quantilesToEval){
   fitLc = list()
   aicScore = matrix()
   for (i in 1:length(listOfModels)){
-    fitLc[[i]] = fitdist(observedMargin,listOfModels[i])
+
+
+
+
+    if (marginGenerator$distname == "weibull3"){
+      fitLc[[i]] = fitdist(observedMargin,listOfModels[i],start = list(1.92,11.32,0))
+    } else {
+      fitLc[[i]] = fitdist(observedMargin,listOfModels[i])
+    }
+
+
+
     # Fit each, collect
     aicScore[i] = fitLc[[i]]$aic
     # Collect Goodness of fit score
