@@ -18,7 +18,7 @@ fitMarginFunction <- function (observedMargin,listOfModels,quantilesToEval){
 
 
     if (listOfModels[i] == "weibull3"){
-      fitLc[[i]] = fitdist(observedMargin,listOfModels[i],start = list(shape=1.92,scale=11.32,thres=0))
+      fitLc[[i]] = fitdist(observedMargin,listOfModels[i],start = list(scale=1.92,shape=11.32,thres=0))
     } else {
       fitLc[[i]] = fitdist(observedMargin,listOfModels[i])
     }
