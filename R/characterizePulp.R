@@ -44,7 +44,8 @@ characterizePulp <- function(pulpPath,saveDirName){
   Sim <- RVineSim(1*dim(pulp_raw)[1],RVM)
 
   print("******************** Margin fits ********************")
-  listOfModels = c("weibull","gamma","lnorm","norm","exp")
+  #listOfModels = c("weibull","gamma","lnorm","norm","exp")
+  listOfModels = c("weibull3","gamma","lnorm","norm","exp")
   print("Margin fit: Lc")
   fitLc      = fitMarginFunction(    pulp_raw$Lc, listOfModels, Sim[,3])
   print("Margin fit: Width")
