@@ -26,7 +26,8 @@ characterizePulp <- function(pulpPath,saveDirName){
   selMethod = "AIC"
   checkIndep = TRUE
   #fitSet = c(0,1)#NA
-  fitSet = c(0,1,3,4,5,104,204)#NA
+  #fitSet = c(0,1,3,4,5,104,204)#NA
+  fitSet = c(0,1,3,4,5)#NA
 
   print("CDVineCondFit input options:")
   print(paste("Nx =",condVars))
@@ -35,11 +36,11 @@ characterizePulp <- function(pulpPath,saveDirName){
   print(paste("indeptest =",checkIndep))
   print(paste("familyset =",fitSet))
 
-  #RVM <- CDVineCondFit(udata,Nx=condVars, type=copType, selectioncrit=selMethod,
-  #                     indeptest=checkIndep, level=0.05)#, familyset = fitSet, rotations = TRUE)
+  RVM <- CDVineCondFit(udata,Nx=condVars, type=copType, selectioncrit=selMethod,
+                       indeptest=checkIndep, level=0.05, familyset = fitSet, rotations = TRUE)
   # Fit Copula
-  RVM <- RVineStructureSelect(udata, type=copType, selectioncrit=selMethod,
-                       indeptest=checkIndep, level=0.05)
+  #RVM <- RVineStructureSelect(udata, type=copType, selectioncrit=selMethod,
+  #                     indeptest=checkIndep, level=0.05)
 
   Sim <- RVineSim(1*dim(pulp_raw)[1],RVM)
 
