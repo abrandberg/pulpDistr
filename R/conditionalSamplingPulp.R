@@ -13,32 +13,41 @@
 #'
 conditionalSamplingPulp <- function(saveDirName,pulp_cond,pulp_raw,outputName){
 
+  # Method 1
+  #start_time <- Sys.time()
   idxToRetain = length(pulp_cond[,1])
-  #conditioningCombined = do.call(rbind, list(pulp_cond, pulp_raw))
-  conditioningCombined = matrix(nrow = idxToRetain,ncol = 3)
-  for(i in 1:idxToRetain ){
+            #conditioningCombined = do.call(rbind, list(pulp_cond, pulp_raw))
+  #conditioningCombined = matrix(nrow = idxToRetain,ncol = 3)
+  #for(i in 1:idxToRetain ){
+  #  for (j in 1:dim(pulp_cond)[2]){
+  #   conditioningCombined[i,j] = rank(rbind(as.matrix(pulp_cond[i,j]), as.matrix(pulp_raw[,j])))[1]/(length(pulp_raw[,1])+1+1)
+  #  }
+  #}
+  #end_time <- Sys.time()
+  #end_time - start_time
 
-    for (j in 1:dim(pulp_cond)[2]){
-     conditioningCombined[i,j] = rank(rbind(as.matrix(pulp_cond[i,j]), as.matrix(pulp_raw[,j])))[1]/(length(pulp_raw[,1])+1+1)
 
-      #  rbind(pulp_cond[i,j], pulp_raw[,j])
-
+  # Method 2
+  denomNormalization = length(pulp_raw[,1])+1+1
+  CC = matrix(nrow = idxToRetain,ncol = 3)
+  #start_time <- Sys.time()
+  for (j in 1:dim(pulp_cond)[2]){
+    ap = pulp_raw[,j]
+    ap3 = sort(ap)
+    for(i in 1:idxToRetain ){
+        CC[i,j] = min(min(which(ap3 > pulp_cond[i,j] )),length(pulp_raw[,1])+1)/denomNormalization
     }
-    #xTemp = rbind(generatePseudoU(do.call(rbind, list(pulp_cond[i,], pulp_raw)))[1,])
-
-    #conditioningCombined[i, ]<-rank(do.call(rbind, list(pulp_cond[i,j], pulp_raw[,j])))[1]/(length(pulp_raw[,1])+1+1)
-
-    #conditioningCombined[i,1] = xTemp[1]
-    #conditioningCombined[i,2] = xTemp[2]
-    #conditioningCombined[i,3] = xTemp[3]
-
-
   }
+  #end_time <- Sys.time()
+  #end_time - start_time
+
+
+
 
   xTemp = generatePseudoU(pulp_cond)
 
 
-  conditioningData = conditioningCombined
+  conditioningData = CC#conditioningCombined
   #conditioningData = generatePseudoU(conditioningCombined)
 
   #conditioningData = conditioningData[1:idxToRetain,]
